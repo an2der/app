@@ -7,12 +7,14 @@ import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.ClientRegistrationException;
 import org.springframework.security.oauth2.provider.client.BaseClientDetails;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 
-public class OauthClientDetailService implements ClientDetailsService {
-	private OAuth2Config config;
+public class OauthClientDetailService implements ClientDetailsService, Serializable {
+    private static final long serialVersionUID = -2911708831119145455L;
+    private OAuth2Config config;
 	public void setConfig(OAuth2Config config) {
 		this.config = config;
 		this.id = this.config.getClientId();

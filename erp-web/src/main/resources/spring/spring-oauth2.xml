@@ -8,8 +8,32 @@
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
 	<!-- 在单机模式下可以使用 -->
-	<bean id="tokenStore"
-		class="org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore" />
+	<!--<bean id="tokenStore"-->
+		<!--class="org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore" />-->
+
+	<!-- redis储存token -->
+	<bean name="poolConfig" class="redis.clients.jedis.JedisPoolConfig" >
+		<property name="maxIdle" value="${redis_maxIdle}"/>
+		<property name="maxTotal" value="${redis_maxActive}"/>
+		<property name="maxWaitMillis" value="${redis_maxWait}"/>
+		<property name="testOnBorrow" value="${redis_testOnBorrow}"/>
+	</bean>
+	<bean name="redisPassword" class="org.springframework.data.redis.connection.RedisPassword">
+		<constructor-arg name="thePassword" value="${redis_pass}"/>
+	</bean>
+	<bean name="redisStandaloneConfiguration" class="org.springframework.data.redis.connection.RedisStandaloneConfiguration">
+		<property name="hostName" value="${redis_host}" />
+		<property name="port" value="${redis_port}" />
+		<property name="password" ref="redisPassword" />
+		<property name="database" value="${redis_dbIndex}" />
+	</bean>
+	<bean name="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+		<property name="poolConfig" ref="poolConfig"/>
+		<constructor-arg name="standaloneConfig" ref="redisStandaloneConfiguration" />
+	</bean>
+	<bean id="tokenStore" class="com.highteam.router.oauth2.provider.InRedisTokenStore">
+		<constructor-arg name="connectionFactory" ref="jedisConnectionFactory"/>
+	</bean>
 
 	<bean id="tokenServices"
 		class="org.springframework.security.oauth2.provider.token.DefaultTokenServices">

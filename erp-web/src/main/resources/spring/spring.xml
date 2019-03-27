@@ -26,11 +26,11 @@
 
 	<import resource="spring-mybatis.xml"/>
 
-	<import resource="spring-schedule.xml"/>
+	<!--<import resource="spring-schedule.xml"/>-->
 
 
 	<context:component-scan base-package="com.highteam.router.auth.service.impl"/>
-	<context:component-scan base-package="com.highteam.router.service.impl"/>
+	<!--<context:component-scan base-package="com.highteam.router.service.impl"/>-->
 	<context:component-scan base-package="com.highteam.router.request"/>
 
 </beans>
