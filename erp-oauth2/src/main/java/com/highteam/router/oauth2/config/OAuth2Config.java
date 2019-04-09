@@ -1,10 +1,7 @@
 package com.highteam.router.oauth2.config;
 
-import java.io.Serializable;
+public class OAuth2Config {
 
-public class OAuth2Config implements Serializable {
-
-	private static final long serialVersionUID = -7750365576041018001L;
 	private String authUrl;
 
 	private String accessTokenKey;

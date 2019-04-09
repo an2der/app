@@ -34,6 +34,6 @@ public class HttpUtil {
 	 * @return
 	 */
 	public static String getEquipinfo(HttpServletRequest request){
-		return request.getHeader("UserInfo-Agent");
+		return request.getHeader("User-Agent");
 	}
 }

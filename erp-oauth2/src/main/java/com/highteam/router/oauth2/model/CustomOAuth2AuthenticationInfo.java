@@ -9,15 +9,12 @@ public class CustomOAuth2AuthenticationInfo implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 2344890528630271159L;
-
+	
 	private String loginName;
 	private String password;
 	private String authType;
 	private String clientIp;
 	private String equipinfo;
-	private String userAccount;
-	private int serviceType;
-
 
 	public String getLoginName() {
 		return loginName;
@@ -57,21 +54,5 @@ public class CustomOAuth2AuthenticationInfo implements Serializable{
 
 	public void setEquipinfo(String equipinfo) {
 		this.equipinfo = equipinfo;
-	}
-
-	public String getUserAccount() {
-		return userAccount;
-	}
-
-	public void setUserAccount(String userAccount) {
-		this.userAccount = userAccount;
-	}
-
-	public int getServiceType() {
-		return serviceType;
-	}
-
-	public void setServiceType(int serviceType) {
-		this.serviceType = serviceType;
 	}
 }

@@ -49,8 +49,6 @@ public class CustomAuthenticationProvider implements AuthenticationProvider,
 			authInfo.setLoginName(upToken.getPrincipal().toString());
 			authInfo.setPassword(upToken.getCredentials().toString());
 			authInfo.setClientIp(map.get("clientIp"));
-			authInfo.setUserAccount((map.get("userAccount")));
-			authInfo.setServiceType(Integer.parseInt(map.get("serviceType")));
 			service = context.getBean(OAuth2AuthenService.class);
 			return this.createSuccessAuthentication(service.auth(authInfo), arg0);
 		} catch (Exception e) {
