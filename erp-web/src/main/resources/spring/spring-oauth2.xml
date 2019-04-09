@@ -11,7 +11,7 @@
 	<!--<bean id="tokenStore"-->
 		<!--class="org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore" />-->
 
-	<!-- redis储存token -->
+	<!--redis储存token -->
 	<bean name="poolConfig" class="redis.clients.jedis.JedisPoolConfig" >
 		<property name="maxIdle" value="${redis_maxIdle}"/>
 		<property name="maxTotal" value="${redis_maxActive}"/>
