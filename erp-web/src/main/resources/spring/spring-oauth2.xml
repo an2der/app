@@ -54,7 +54,7 @@
 		<property name="enableVcode" value="${enableVcode}" />
 		<property name="homePage" value="/login"></property>
 		<property name="app" value="app"></property>
-		<property name="clientId" value="erp_web_manage"></property>
+		<property name="clientId" value="${clientId}"></property>
 		<property name="clientSecret" value=""></property>
 	</bean>
 	
@@ -149,6 +149,7 @@
 			<list>
 				<value>text/html;charset=UTF-8</value>
 				<value>application/json; charset=UTF-8</value>
+				<value>application/x-www-form-urlencoded; charset=UTF-8</value>
 			</list>
 		</property>
 	</bean> 
