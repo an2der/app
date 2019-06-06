@@ -36,6 +36,14 @@
 		<filter-name>SpringEncodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	<filter>
+		<filter-name>CrossDomainFilter</filter-name>
+		<filter-class>com.highteam.router.core.CrossDomainFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CrossDomainFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 
 
 	<!-- 日志记录 -->
