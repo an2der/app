@@ -34,7 +34,7 @@ public class RequestGateWayCore {
 		this.logService = logService;
 	}
 
-    public void setRouteFactory(RouteFactory routeFactory) {
+	public void setRouteFactory(RouteFactory routeFactory) {
 		this.routeFactory = routeFactory;
 	}
 
@@ -43,7 +43,7 @@ public class RequestGateWayCore {
 
 		OAuth2Request oAuth2Request = new OAuth2Request();
 		try {
-			
+
 			RequestPath path = new RequestPath(param.getBusinessParam(), param.getVersion());
 			RouteAdapater route = routeFactory.getRoute(path.toString());
 			if(businessExecuteService!=null) {
@@ -54,9 +54,9 @@ public class RequestGateWayCore {
 			oAuth2Request.setCode(OAuth2RequestStateCodeService.OK);
 		} catch (BusinessException e) {
 			e.printStackTrace();
-			oAuth2Request.setStatus(false);
-			oAuth2Request.setMsg(e.getClass()+":"+e.getMessage());
-			oAuth2Request.setCode(OAuth2RequestStateCodeService.INTERNAL_SERVER_ERROR);
+			oAuth2Request.setStatus(true);
+			oAuth2Request.setMsg(e.getMessage());
+			oAuth2Request.setCode(e.getCode());
 		} catch (Exception e) {
 			oAuth2Request.setStatus(false);
 			oAuth2Request.setCode(OAuth2RequestStateCodeService.INTERNAL_SERVER_ERROR);
@@ -72,9 +72,9 @@ public class RequestGateWayCore {
 					t = t.getCause();
 				}
 				if (t == null) {
-					oAuth2Request.setMsg(e.getClass()+":"+e.getMessage());
+					oAuth2Request.setMsg(e.getMessage());
 				} else {
-					oAuth2Request.setMsg(t.getCause().getClass()+":"+ t.getMessage());
+					oAuth2Request.setMsg(t.getMessage());
 				}
 			}
 		}finally {

@@ -1,7 +1,7 @@
 package com.highteam.router.common.m;
 
 public final class BusinessException extends RuntimeException {
-    public final static String defaultcode = "500";
+    public final static String defaultcode = "333";
     private static final long serialVersionUID = -6827343172666309288L;
     private String code;
     private String msg;
