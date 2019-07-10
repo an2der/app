@@ -31,10 +31,16 @@
         <property name="redis_maxActive"/>
         <property name="redis_maxWait"/>
         <property name="redis_testOnBorrow"/>
+        <!-- ALIOSS -->
+        <property name="endpoint"/>
+        <property name="endpoint_internal"/>
+        <property name="accessKeyId"/>
+        <property name="accessKeySecret"/>
 
     </group>
     <script>
         <generate template="WEB-INF/classes/conf/config.properties" charset="UTF-8"/>
         <generate template="WEB-INF/classes/conf/jdbc.properties" charset="UTF-8"/>
+        <generate template="WEB-INF/classes/conf/ossConfig.yml" charset="UTF-8"/>
     </script>
 </config>

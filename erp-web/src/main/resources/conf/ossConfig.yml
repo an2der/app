@@ -1,9 +1,8 @@
-publicOssConfig:
-  endpoint:
-  endpoint_internal:
-  accessKeyId:
-  accessKeySecret:
-  bucketName:
-  accessEndpoint:
-  rootPath:
-  sign:
+private:
+  endpoint: ${endpoint}
+  endpoint_internal: ${endpoint_internal}
+  accessKeyId: ${accessKeyId}
+  accessKeySecret: ${accessKeySecret}
+  bucketName: ems-manage
+  rootPath: projectDocument
+  sign: true
