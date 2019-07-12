@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.highteam.router.dao.AttachmentMapper">
+  <resultMap id="BaseResultMap" type="com.highteam.router.model.Attachment">
+    <id column="attachmentId" jdbcType="INTEGER" property="attachmentId" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="createId" jdbcType="INTEGER" property="createId" />
+    <result column="updateId" jdbcType="INTEGER" property="updateId" />
+    <result column="createName" jdbcType="VARCHAR" property="createName" />
+    <result column="updateName" jdbcType="VARCHAR" property="updateName" />
+    <result column="bussinessType" jdbcType="VARCHAR" property="bussinessType" />
+    <result column="businessName" jdbcType="VARCHAR" property="businessName" />
+    <result column="bussinessId" jdbcType="INTEGER" property="bussinessId" />
+    <result column="bussinessDescribe" jdbcType="VARCHAR" property="bussinessDescribe" />
+    <result column="filename" jdbcType="VARCHAR" property="filename" />
+    <result column="filepath" jdbcType="VARCHAR" property="filepath" />
+    <result column="filesize" jdbcType="VARCHAR" property="filesize" />
+    <result column="filetype" jdbcType="VARCHAR" property="filetype" />
+    <result column="serverName" jdbcType="VARCHAR" property="serverName" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    attachmentId, createTime, updateTime, createId, updateId, createName, updateName,
+    bussinessType, businessName, bussinessId, bussinessDescribe, filename, filepath,
+    filesize, filetype, serverName, remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from erp_attachment
+    where attachmentId = #{attachmentId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from erp_attachment
+    where attachmentId = #{attachmentId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.highteam.router.model.Attachment">
+    insert into erp_attachment (attachmentId, createTime, updateTime,
+      createId, updateId, createName,
+      updateName, bussinessType, businessName,
+      bussinessId, bussinessDescribe, filename,
+      filepath, filesize, filetype,
+      serverName, remark)
+    values (#{attachmentId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},
+      #{createId,jdbcType=INTEGER}, #{updateId,jdbcType=INTEGER}, #{createName,jdbcType=VARCHAR},
+      #{updateName,jdbcType=VARCHAR}, #{bussinessType,jdbcType=VARCHAR}, #{businessName,jdbcType=VARCHAR},
+      #{bussinessId,jdbcType=INTEGER}, #{bussinessDescribe,jdbcType=VARCHAR}, #{filename,jdbcType=VARCHAR},
+      #{filepath,jdbcType=VARCHAR}, #{filesize,jdbcType=VARCHAR}, #{filetype,jdbcType=VARCHAR},
+      #{serverName,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.highteam.router.model.Attachment">
+    insert into erp_attachment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="attachmentId != null">
+        attachmentId,
+      </if>
+      <if test="createTime != null">
+        createTime,
+      </if>
+      <if test="updateTime != null">
+        updateTime,
+      </if>
+      <if test="createId != null">
+        createId,
+      </if>
+      <if test="updateId != null">
+        updateId,
+      </if>
+      <if test="createName != null">
+        createName,
+      </if>
+      <if test="updateName != null">
+        updateName,
+      </if>
+      <if test="bussinessType != null">
+        bussinessType,
+      </if>
+      <if test="businessName != null">
+        businessName,
+      </if>
+      <if test="bussinessId != null">
+        bussinessId,
+      </if>
+      <if test="bussinessDescribe != null">
+        bussinessDescribe,
+      </if>
+      <if test="filename != null">
+        filename,
+      </if>
+      <if test="filepath != null">
+        filepath,
+      </if>
+      <if test="filesize != null">
+        filesize,
+      </if>
+      <if test="filetype != null">
+        filetype,
+      </if>
+      <if test="serverName != null">
+        serverName,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="attachmentId != null">
+        #{attachmentId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createId != null">
+        #{createId,jdbcType=INTEGER},
+      </if>
+      <if test="updateId != null">
+        #{updateId,jdbcType=INTEGER},
+      </if>
+      <if test="createName != null">
+        #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateName != null">
+        #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessType != null">
+        #{bussinessType,jdbcType=VARCHAR},
+      </if>
+      <if test="businessName != null">
+        #{businessName,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessId != null">
+        #{bussinessId,jdbcType=INTEGER},
+      </if>
+      <if test="bussinessDescribe != null">
+        #{bussinessDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="filename != null">
+        #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="filepath != null">
+        #{filepath,jdbcType=VARCHAR},
+      </if>
+      <if test="filesize != null">
+        #{filesize,jdbcType=VARCHAR},
+      </if>
+      <if test="filetype != null">
+        #{filetype,jdbcType=VARCHAR},
+      </if>
+      <if test="serverName != null">
+        #{serverName,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.highteam.router.model.Attachment">
+    update erp_attachment
+    <set>
+      <if test="createTime != null">
+        createTime = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createId != null">
+        createId = #{createId,jdbcType=INTEGER},
+      </if>
+      <if test="updateId != null">
+        updateId = #{updateId,jdbcType=INTEGER},
+      </if>
+      <if test="createName != null">
+        createName = #{createName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateName != null">
+        updateName = #{updateName,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessType != null">
+        bussinessType = #{bussinessType,jdbcType=VARCHAR},
+      </if>
+      <if test="businessName != null">
+        businessName = #{businessName,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessId != null">
+        bussinessId = #{bussinessId,jdbcType=INTEGER},
+      </if>
+      <if test="bussinessDescribe != null">
+        bussinessDescribe = #{bussinessDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="filename != null">
+        filename = #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="filepath != null">
+        filepath = #{filepath,jdbcType=VARCHAR},
+      </if>
+      <if test="filesize != null">
+        filesize = #{filesize,jdbcType=VARCHAR},
+      </if>
+      <if test="filetype != null">
+        filetype = #{filetype,jdbcType=VARCHAR},
+      </if>
+      <if test="serverName != null">
+        serverName = #{serverName,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where attachmentId = #{attachmentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.highteam.router.model.Attachment">
+    update erp_attachment
+    set createTime = #{createTime,jdbcType=TIMESTAMP},
+      updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      createId = #{createId,jdbcType=INTEGER},
+      updateId = #{updateId,jdbcType=INTEGER},
+      createName = #{createName,jdbcType=VARCHAR},
+      updateName = #{updateName,jdbcType=VARCHAR},
+      bussinessType = #{bussinessType,jdbcType=VARCHAR},
+      businessName = #{businessName,jdbcType=VARCHAR},
+      bussinessId = #{bussinessId,jdbcType=INTEGER},
+      bussinessDescribe = #{bussinessDescribe,jdbcType=VARCHAR},
+      filename = #{filename,jdbcType=VARCHAR},
+      filepath = #{filepath,jdbcType=VARCHAR},
+      filesize = #{filesize,jdbcType=VARCHAR},
+      filetype = #{filetype,jdbcType=VARCHAR},
+      serverName = #{serverName,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where attachmentId = #{attachmentId,jdbcType=INTEGER}
+  </update>
+  <insert id="batchInsert" parameterType="java.util.List">
+    insert into erp_attachment (createTime, updateTime,
+      createId, updateId, createName,
+      updateName, bussinessType, businessName,
+      bussinessId, bussinessDescribe, filename,
+      filepath,filesize,filetype,
+      serverName , remark)
+    values
+    <foreach collection="list" item="item" separator=",">
+    ( #{item.createTime,jdbcType=TIMESTAMP}, #{item.updateTime,jdbcType=TIMESTAMP},
+      #{item.createId,jdbcType=INTEGER}, #{item.updateId,jdbcType=INTEGER}, #{item.createName,jdbcType=VARCHAR},
+      #{item.updateName,jdbcType=VARCHAR}, #{item.bussinessType,jdbcType=VARCHAR}, #{item.businessName,jdbcType=VARCHAR},
+      #{item.bussinessId,jdbcType=INTEGER}, #{item.bussinessDescribe,jdbcType=VARCHAR}, #{item.filename,jdbcType=VARCHAR},
+      #{item.filepath,jdbcType=VARCHAR},#{item.filesize,jdbcType=VARCHAR},#{item.filetype,jdbcType=VARCHAR},
+      #{item.serverName,jdbcType=VARCHAR}, #{item.remark,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+  <delete id="deleteByBusinessTypeAndBusinessId" >
+    delete from erp_attachment
+    where businessName = #{businessName,jdbcType=VARCHAR} and bussinessId = #{bussinessId,jdbcType=INTEGER}
+  </delete>
+  <select id="selectListByParam" parameterType="com.highteam.router.model.Attachment" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from erp_attachment
+    where bussinessType = #{bussinessType,jdbcType=VARCHAR}
+    and bussinessId = #{bussinessId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByBusinessTypeAndBusinessIds" >
+    delete from erp_attachment
+    where bussinessType = #{businessType,jdbcType=VARCHAR} and bussinessId in ${businessIds}
+  </delete>
+  <select id="selectByBusinessTypeAndBusinessIds" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from erp_attachment
+    where bussinessType = #{bussinessType,jdbcType=VARCHAR}
+    and bussinessId in ${businessIds}
+  </select>
+</mapper>

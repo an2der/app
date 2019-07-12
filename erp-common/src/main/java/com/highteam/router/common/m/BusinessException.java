@@ -18,6 +18,10 @@ public final class BusinessException extends RuntimeException {
         this(code, msg, null);
     }
 
+    public BusinessException(String msg, Throwable cause) {
+        this(defaultcode,msg,cause);
+    }
+
     public BusinessException(String code, String msg, Throwable cause) {
         super(msg, cause);
         this.code = code;
