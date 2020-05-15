@@ -32,7 +32,7 @@
         <log4j.version>2.11.1</log4j.version>
         <!-- 定义autoconfig的版本，建议将此行写在parent pom.xml中。 -->
         <autoconfig-plugin-version>1.2</autoconfig-plugin-version>
-        <fasterjackson.version>2.9.8</fasterjackson.version>
+        <fasterjackson.version>2.11.0</fasterjackson.version>
         <poi.version>3.15</poi.version>
     </properties>
     <dependencyManagement>
