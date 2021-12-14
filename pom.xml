@@ -29,7 +29,7 @@
         <!-- mybatis版本号 -->
         <mybatis.version>3.2.6</mybatis.version>
         <!-- log4j日志文件管理包版本 -->
-        <log4j.version>2.11.1</log4j.version>
+        <log4j.version>2.16.0</log4j.version>
         <!-- 定义autoconfig的版本，建议将此行写在parent pom.xml中。 -->
         <autoconfig-plugin-version>1.2</autoconfig-plugin-version>
         <fasterjackson.version>2.9.8</fasterjackson.version>
